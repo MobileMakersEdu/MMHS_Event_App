@@ -364,7 +364,7 @@ func getPhotosForEvent(event : Event, completed: (photos:[Photo]!, result:Bool, 
     let queryOperation = CKQueryOperation(query: query)
 
     queryOperation.recordFetchedBlock = { (record : CKRecord!) in
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
             results.append(Photo(theCKRecord: record))
             completed(photos: results, result: true, error: nil)
         })

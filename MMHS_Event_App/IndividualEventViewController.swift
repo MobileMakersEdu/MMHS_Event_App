@@ -34,31 +34,6 @@ class IndividualEventViewController: UIViewController, UIActionSheetDelegate, UI
         })
     }
 
-    @IBAction func onLikeButtonTapped(sender: UIButton)
-    {
-        let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: sender.tag, inSection: 0))
-        let photo = photosArray[sender.tag]
-
-        let selectedImage = UIImage(named: "likeSelected")
-        let unselectedImage = UIImage(named: "likeUnselected")
-
-        if sender.imageView?.image == unselectedImage
-        {
-            sender.setImage(selectedImage, forState: UIControlState.Normal)
-            photo.likesCount = photo.likesCount + 1
-            photo.save({ (succeeded, error) -> Void in
-                self.tableView.reloadData()
-            })
-        }else{
-            sender.setImage(unselectedImage, forState: UIControlState.Normal)
-            photo.likesCount = photo.likesCount - 1
-            photo.save({ (succeeded, error) -> Void in
-                self.tableView.reloadData()
-            })
-        }
-
-    }
-
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return photosArray.count
     }
@@ -77,7 +52,6 @@ class IndividualEventViewController: UIViewController, UIActionSheetDelegate, UI
         cell.dateLabel.text = photo.dateTaken.toOtherString()
         cell.likesLabel.text = "\(photo.likesCount)"
         cell.likeButton.tag = indexPath.row
-        cell.likesLabel.text = "\(photo.likesCount)"
 
         return cell
     }
