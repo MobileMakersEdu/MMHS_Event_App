@@ -18,9 +18,6 @@
 		93800A8D19C178D800B35878 /* PhotoStreamTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93800A8C19C178D800B35878 /* PhotoStreamTableViewCell.swift */; };
 		939EE0E919C18CDF000C011C /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939EE0E819C18CDF000C011C /* ExploreViewController.swift */; };
 		939EE0EC19C18EEB000C011C /* EventAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939EE0EB19C18EEB000C011C /* EventAnnotation.swift */; };
-		939EE0EE19C19427000C011C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939EE0ED19C19427000C011C /* ProfileViewController.swift */; };
-		939EE0F019C19677000C011C /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939EE0EF19C19677000C011C /* ProfileTableViewCell.swift */; };
-		939EE0F319C19C23000C011C /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939EE0F219C19C23000C011C /* EditProfileViewController.swift */; };
 		93CDD0D619B60BE5000122F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CDD0D519B60BE5000122F6 /* AppDelegate.swift */; };
 		93CDD0DB19B60BE5000122F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93CDD0D919B60BE5000122F6 /* Main.storyboard */; };
 		93CDD0DD19B60BE5000122F6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93CDD0DC19B60BE5000122F6 /* Images.xcassets */; };
@@ -53,9 +50,6 @@
 		93800A8C19C178D800B35878 /* PhotoStreamTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoStreamTableViewCell.swift; sourceTree = "<group>"; };
 		939EE0E819C18CDF000C011C /* ExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		939EE0EB19C18EEB000C011C /* EventAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventAnnotation.swift; sourceTree = "<group>"; };
-		939EE0ED19C19427000C011C /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		939EE0EF19C19677000C011C /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
-		939EE0F219C19C23000C011C /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		93CDD0D019B60BE5000122F6 /* MMHS_Event_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MMHS_Event_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93CDD0D419B60BE5000122F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93CDD0D519B60BE5000122F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -103,16 +97,6 @@
 			name = Explore;
 			sourceTree = "<group>";
 		};
-		939EE0F119C1974C000C011C /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				939EE0F219C19C23000C011C /* EditProfileViewController.swift */,
-				939EE0EF19C19677000C011C /* ProfileTableViewCell.swift */,
-				939EE0ED19C19427000C011C /* ProfileViewController.swift */,
-			);
-			name = Profile;
-			sourceTree = "<group>";
-		};
 		93CDD0C719B60BE5000122F6 = {
 			isa = PBXGroup;
 			children = (
@@ -141,7 +125,6 @@
 				93CDD0D519B60BE5000122F6 /* AppDelegate.swift */,
 				192213D619B67176006A23BF /* ModelObjects.swift */,
 				93CDD0D919B60BE5000122F6 /* Main.storyboard */,
-				939EE0F119C1974C000C011C /* Profile */,
 				939EE0EA19C18CE4000C011C /* Explore */,
 				93CDD0F619B62AAC000122F6 /* Home */,
 				93CDD0DC19B60BE5000122F6 /* Images.xcassets */,
@@ -296,18 +279,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				93CDD0D619B60BE5000122F6 /* AppDelegate.swift in Sources */,
-				939EE0F019C19677000C011C /* ProfileTableViewCell.swift in Sources */,
 				933130C919B7BCA500ED4CB9 /* NoUserViewController.swift in Sources */,
 				93800A8B19C1723100B35878 /* IndividualEventViewController.swift in Sources */,
 				93CDD0F319B629E1000122F6 /* HomeViewController.swift in Sources */,
 				93800A8719C140DF00B35878 /* CreateEventViewController.swift in Sources */,
 				939EE0EC19C18EEB000C011C /* EventAnnotation.swift in Sources */,
 				933130C719B7B14800ED4CB9 /* AAPLCloudManager.m in Sources */,
-				939EE0F319C19C23000C011C /* EditProfileViewController.swift in Sources */,
 				93800A8D19C178D800B35878 /* PhotoStreamTableViewCell.swift in Sources */,
 				93800A8419C12BC300B35878 /* LightBlurredImageView.swift in Sources */,
 				93800A8919C160C700B35878 /* HomeFeedTableViewCell.swift in Sources */,
-				939EE0EE19C19427000C011C /* ProfileViewController.swift in Sources */,
 				939EE0E919C18CDF000C011C /* ExploreViewController.swift in Sources */,
 				192213D719B67176006A23BF /* ModelObjects.swift in Sources */,
 			);
