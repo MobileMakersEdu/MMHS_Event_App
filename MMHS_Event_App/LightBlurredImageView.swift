@@ -1,14 +1,14 @@
 //
-//  BlurredImageView.swift
+//  LighterBlurredImageView.swift
 //  MMHS_Event_App
 //
-//  Created by Vik Denic on 9/3/14.
+//  Created by Mobile Makers on 9/4/14.
 //  Copyright (c) 2014 MobileMakers. All rights reserved.
 //
 
 import UIKit
 
-class BlurredImageView: UIImageView {
+class LightBlurredImageView: UIImageView {
 
     override func awakeFromNib()
     {
@@ -19,7 +19,7 @@ class BlurredImageView: UIImageView {
     {
         super.init(coder: aDecoder)
 
-        var blur : UIBlurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
+        var blur : UIBlurEffect = UIBlurEffect(style: UIBlurEffectStyle.ExtraLight)
         var effectView : UIVisualEffectView = UIVisualEffectView(effect: blur)
         effectView.frame = frame
         addSubview(effectView)

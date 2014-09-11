@@ -2,7 +2,7 @@
 //  HomeViewController.swift
 //  MMHS_Event_App
 //
-//  Created by Vik Denic on 9/2/14.
+//  Created by Mobile Makers on 9/2/14.
 //  Copyright (c) 2014 MobileMakers. All rights reserved.
 //
 
@@ -10,23 +10,18 @@ import UIKit
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    var eventsArray = [Event]()
     @IBOutlet var tableView: UITableView!
-    @IBOutlet var refreshButton: UIBarButtonItem!
-    var selectedIndexPath = NSIndexPath()
+    var eventsArray = [Event]()
 
     //MARK: View Loading
     override func viewWillAppear(animated: Bool)
     {
         super.viewWillAppear(true)
 
-        tabBarController?.tabBar.tintColor = UIColor.purpleColor()
-
         checkForAccountAuthentification()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "checkForAccountAuthentification", name: "opened", object: nil)
     }
 
-    //MARK: Helpers
     func retrieveEvents()
     {
         getAllEvents { (events, result, error) -> Void in
@@ -35,60 +30,35 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
 
-    //MARK: Actions
-    @IBAction func onRefreshButtonTapped(sender: UIBarButtonItem)
-    {
-        if eventsArray.count > 0
-        {
-            retrieveEvents()
-        }
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.eventsArray.count
     }
 
-    //MARK: TableView
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
-        return eventsArray.count
-    }
-
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
-    {
-        let feedCell = tableView.dequeueReusableCellWithIdentifier("FeedCell") as FeedTableViewCell
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("FeedCell") as HomeFeedTableViewCell
 
         let event = eventsArray[indexPath.row]
 
-        let hostRef = event.host
+        let hostReference = event.host
 
-        getUserFromReference(hostRef, { (user, result, error) -> Void in
-            feedCell.hostImageView.image = imageFromAsset(user!.profilePic)
+        getUserFromReference(hostReference, { (user, result, error) -> Void in
+            cell.hostImageView.image = imageFromAsset(user!.profilePic)
         })
 
-        feedCell.eventImageView.image = imageFromAsset(event.eventPhoto)
+        cell.eventImageView.image = imageFromAsset(event.eventPhoto)
 
-        feedCell.titleLabel.text = event.title
+        cell.titleLabel.text = event.title
+
         let date = event.date
-        feedCell.dateLabel.text = date.toNiceString()
+        cell.dateLabel.text = date.toNiceString()
 
-        return feedCell
-    }
-
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        selectedIndexPath = indexPath
+        return cell
     }
 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 320
     }
 
-    //MARK: Segues
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
-    {
-        if segue.identifier == "toStream"
-        {
-        var individualVC = segue.destinationViewController as IndividualEventViewController
-
-        individualVC.event = eventsArray[tableView.indexPathForSelectedRow()!.row]
-        }
-    }
 
     //MARK: Check for iCloud user
     func checkForAccountAuthentification()

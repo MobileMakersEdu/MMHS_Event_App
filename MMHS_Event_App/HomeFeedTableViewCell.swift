@@ -1,23 +1,23 @@
 //
-//  FeedTableViewCell.swift
+//  HomeFeedTableViewCell.swift
 //  MMHS_Event_App
 //
-//  Created by Vik Denic on 9/2/14.
+//  Created by Johnny Appleseed on 9/10/14.
 //  Copyright (c) 2014 MobileMakers. All rights reserved.
 //
 
 import UIKit
 
-class FeedTableViewCell: UITableViewCell{
+class HomeFeedTableViewCell: UITableViewCell {
 
     @IBOutlet var eventImageView: UIImageView!
     @IBOutlet var hostImageView: UIImageView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        hostImageView.layer.cornerRadius = hostImageView.frame.size.height / 2
+        hostImageView.clipsToBounds = true
     }
-
 }
