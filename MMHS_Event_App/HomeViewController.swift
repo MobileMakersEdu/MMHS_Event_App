@@ -13,6 +13,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet var tableView: UITableView!
     var eventsArray = [Event]()
 
+    var selectedIndexPath = NSIndexPath()
+
     //MARK: View Loading
     override func viewWillAppear(animated: Bool)
     {
@@ -59,6 +61,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         return 320
     }
 
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        selectedIndexPath = indexPath
+    }
 
     //MARK: Check for iCloud user
     func checkForAccountAuthentification()
@@ -72,6 +77,16 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             else{
                 self.performSegueWithIdentifier("NoAccountSegue", sender: nil)
             }
+        }
+    }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        if segue.identifier == "toStream"
+        {
+            let individualVC = segue.destinationViewController as IndividualEventViewController
+
+            individualVC.event = eventsArray[tableView.indexPathForSelectedRow()!.row]
         }
     }
 
