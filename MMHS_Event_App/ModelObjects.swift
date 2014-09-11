@@ -401,4 +401,13 @@ extension UIImage{
 
         return localURL!
     }
+
+    func compressImageAndResize(cgsize: CGSize) -> UIImage!
+    {
+        var scaleSize = cgsize
+        UIGraphicsBeginImageContextWithOptions(scaleSize, false, 0.0)
+        self.drawInRect(CGRectMake(0, 0, scaleSize.width, scaleSize.height))
+        let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
+        return resizedImage
+    }
 }
