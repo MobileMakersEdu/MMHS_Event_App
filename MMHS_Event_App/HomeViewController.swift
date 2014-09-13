@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HomeViewController: UIViewController {
 
     var eventsArray = [Event]()
     @IBOutlet var tableView: UITableView!
@@ -26,78 +26,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "checkForAccountAuthentification", name: "opened", object: nil)
     }
 
-    //MARK: Helpers
-    func retrieveEvents()
-    {
-        getAllEvents { (events, result, error) -> Void in
-            self.eventsArray = events
-            self.tableView.reloadData()
-        }
-    }
-
-    //MARK: Actions
-    @IBAction func onRefreshButtonTapped(sender: UIBarButtonItem)
-    {
-        if eventsArray.count > 0
-        {
-            retrieveEvents()
-        }
-    }
-
-    //MARK: TableView
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
-        return eventsArray.count
-    }
-
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
-    {
-        let feedCell = tableView.dequeueReusableCellWithIdentifier("FeedCell") as FeedTableViewCell
-
-        let event = eventsArray[indexPath.row]
-
-        let hostRef = event.host
-
-        getUserFromReference(hostRef, { (user, result, error) -> Void in
-            feedCell.hostImageView.image = imageFromAsset(user!.profilePic)
-        })
-
-        feedCell.eventImageView.image = imageFromAsset(event.eventPhoto)
-
-        feedCell.titleLabel.text = event.title
-        let date = event.date
-        feedCell.dateLabel.text = date.toNiceString()
-
-        return feedCell
-    }
-
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        selectedIndexPath = indexPath
-    }
-
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 320
-    }
-
-    //MARK: Segues
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
-    {
-        if segue.identifier == "toStream"
-        {
-        var individualVC = segue.destinationViewController as IndividualEventViewController
-
-        individualVC.event = eventsArray[tableView.indexPathForSelectedRow()!.row]
-        }
-    }
-
     //MARK: Check for iCloud user
     func checkForAccountAuthentification()
     {
         var currentiCloudAccountStatus : Void = CKContainer.defaultContainer().accountStatusWithCompletionHandler { (accessibility, error) -> Void in
             if accessibility == CKAccountStatus.Available
             {
-                self.requestDiscoverability()
-                self.retrieveEvents()
+
             }
             else{
                 self.performSegueWithIdentifier("NoAccountSegue", sender: nil)
