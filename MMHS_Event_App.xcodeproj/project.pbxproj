@@ -11,6 +11,7 @@
 		933130C319B7AEE200ED4CB9 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 933130C219B7AEE200ED4CB9 /* CloudKit.framework */; };
 		933130C919B7BCA500ED4CB9 /* NoUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933130C819B7BCA500ED4CB9 /* NoUserViewController.swift */; };
 		933E5CA119C4FD1700C21A56 /* AAPLCloudManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 933E5CA019C4FD1700C21A56 /* AAPLCloudManager.m */; };
+		933E5CA319C4FDC600C21A56 /* LighterBlurredImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933E5CA219C4FDC600C21A56 /* LighterBlurredImageView.swift */; };
 		93CDD0D619B60BE5000122F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CDD0D519B60BE5000122F6 /* AppDelegate.swift */; };
 		93CDD0DB19B60BE5000122F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93CDD0D919B60BE5000122F6 /* Main.storyboard */; };
 		93CDD0DD19B60BE5000122F6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93CDD0DC19B60BE5000122F6 /* Images.xcassets */; };
@@ -36,6 +37,7 @@
 		933130C819B7BCA500ED4CB9 /* NoUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoUserViewController.swift; sourceTree = "<group>"; };
 		933E5C9F19C4FD1700C21A56 /* AAPLCloudManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AAPLCloudManager.h; path = ../AAPLCloudManager.h; sourceTree = "<group>"; };
 		933E5CA019C4FD1700C21A56 /* AAPLCloudManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AAPLCloudManager.m; path = ../AAPLCloudManager.m; sourceTree = "<group>"; };
+		933E5CA219C4FDC600C21A56 /* LighterBlurredImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LighterBlurredImageView.swift; sourceTree = "<group>"; };
 		93CDD0D019B60BE5000122F6 /* MMHS_Event_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MMHS_Event_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93CDD0D419B60BE5000122F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93CDD0D519B60BE5000122F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		933E5CA419C4FE1900C21A56 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				933E5CA219C4FDC600C21A56 /* LighterBlurredImageView.swift */,
+			);
+			name = "Custom Views";
+			sourceTree = "<group>";
+		};
 		93CDD0C719B60BE5000122F6 = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +142,7 @@
 			children = (
 				933130C819B7BCA500ED4CB9 /* NoUserViewController.swift */,
 				93CDD0F219B629E1000122F6 /* HomeViewController.swift */,
+				933E5CA419C4FE1900C21A56 /* Custom Views */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -242,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93CDD0D619B60BE5000122F6 /* AppDelegate.swift in Sources */,
+				933E5CA319C4FDC600C21A56 /* LighterBlurredImageView.swift in Sources */,
 				933130C919B7BCA500ED4CB9 /* NoUserViewController.swift in Sources */,
 				93CDD0F319B629E1000122F6 /* HomeViewController.swift in Sources */,
 				192213D719B67176006A23BF /* ModelObjects.swift in Sources */,
